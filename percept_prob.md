@@ -106,7 +106,46 @@ phrase_fct <- d3 %>%
 d3 <- d3 %>% 
    mutate(phrase = factor(phrase, levels = phrase_fct) %>% fct_rev,
           estimate = estimate / 100)
+
+d3 %>% 
+   group_by(phrase) %>% 
+   summarize(mean = mean(estimate, na.rm = T)) %>% 
+   arrange(desc(mean)) %>% 
+   print(n = 29)
 ```
+
+    ## # A tibble: 29 × 2
+    ##    phrase                             mean
+    ##    <fct>                             <dbl>
+    ##  1 Almost Impossible                 0.933
+    ##  2 Impossible                        0.847
+    ##  3 Probably Not                      0.807
+    ##  4 Certain                           0.793
+    ##  5 Some Slight Chance                0.78 
+    ##  6 Improbable                        0.767
+    ##  7 Virtually Impossible              0.72 
+    ##  8 All But Certain                   0.693
+    ##  9 Almost Certainly                  0.68 
+    ## 10 Unlikely                          0.667
+    ## 11 We Believe                        0.647
+    ## 12 Might                             0.63 
+    ## 13 Chances About Even                0.627
+    ## 14 Chances A Little Better Than Even 0.627
+    ## 15 Conceivable                       0.61 
+    ## 16 Highly Doubtful                   0.587
+    ## 17 Perhaps Will Win                  0.577
+    ## 18 May                               0.55 
+    ## 19 Highly Probable                   0.547
+    ## 20 Estimate Will Not                 0.54 
+    ## 21 Almost Certain                    0.527
+    ## 22 Highly Likely                     0.493
+    ## 23 Odds Are Overwhelming             0.48 
+    ## 24 Doubtful                          0.43 
+    ## 25 Probable                          0.42 
+    ## 26 Could                             0.417
+    ## 27 Virtually Certain                 0.41 
+    ## 28 We Doubt                          0.407
+    ## 29 A Little Worse Than Even          0.353
 
 Create the Density Ridgelines:
 
