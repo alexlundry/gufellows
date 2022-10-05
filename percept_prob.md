@@ -3,8 +3,6 @@ Perceptions of Probability
 Alex Lundry
 2022-10-03
 
-**PLACEHOLDER PAGE WITH DEMO DATA - TO BE UPDATED WITH LIVE DATA**
-
 Read in and review data from the first survey:
 
 ``` r
